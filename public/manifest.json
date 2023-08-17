@@ -1,0 +1,19 @@
+{
+  "name": "Community Article Finder",
+  "description": " A chrome extension based on community contributions where you can upvote or downvotes websites having articles and help each other find relevant articles more easily ",
+  "version": "1.0.0",
+  "manifest_version": 3,
+  "action": {
+    "default_popup": "index.html"
+  },
+
+  "icons": {
+    "16": "./group.png",
+    "48": "./group.png",
+    "128": "./group.png"
+  },
+  "permissions": [
+    "activeTab",
+    "storage"
+  ]
+}
