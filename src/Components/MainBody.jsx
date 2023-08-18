@@ -54,6 +54,35 @@ const scrapedData = [
 ];
 
 function MainBody() {
+  React.useEffect( async () => {
+    const [tab] = await chrome.tabs.query({ active: true, currentWindow: true });
+
+        // Fetch the HTML content of the active tab
+        const response = await fetch(tab.url);
+        const htmlContent = await response.text();
+
+        console.log(htmlContent)
+
+        // get all the links in the page
+        const links = htmlContent.match(/<a[^>]+href="([^"]+)"/g);
+        console.log(links);
+
+        // get all the text fields in the h3 tag
+        const h3 = htmlContent.match(/<h3[^>]*>([^<]+)<\/h3>/g);
+        console.log(h3);
+
+        // // Create a temporary element to parse the HTML content
+        // const tempElement = document.createElement("div");
+        // tempElement.innerHTML = htmlContent;
+
+        // // Find all elements with the class "cite"
+        // const citeElements = tempElement.querySelectorAll(".cite");
+
+        // // Extract and log the content of the "cite" elements
+        // const citeContents = Array.from(citeElements).map(citeElement => citeElement.textContent);
+        // console.log(citeContents);
+  }, []);
+
   const [rows, setRows] = React.useState(
     scrapedData.map((data) => {
       return createData(data.name, data.upvotes, data.downvotes, false, false);

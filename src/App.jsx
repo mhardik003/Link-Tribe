@@ -1,3 +1,6 @@
+    /*global chrome*/
+
+
 import React from 'react';
 import { useState , useEffect} from 'react';
 import logo from './logo.svg';
@@ -11,6 +14,8 @@ import Grid from '@mui/material/Grid';
 import { Divider, Typography } from '@mui/material';
 
 function App() {
+
+
   
 
   /**
